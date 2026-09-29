@@ -1,0 +1,65 @@
+===============================================================================
+             DOCUMENTACIÓN DEL PROYECTO: SISTEMA COMERCIOARTES
+===============================================================================
+
+1. DESCRIPCIÓN Y OBJETIVO DEL PROYECTO
+-------------------------------------------------------------------------------
+El proyecto "ComercioArtes" es una aplicación desarrollada en Python que simula 
+la gestión administrativa y comercial de una red de galerías de arte. 
+
+Su objetivo principal es controlar el flujo completo de información que ocurre 
+en un entorno de comercio de arte, permitiendo:
+  - Administrar el catálogo de Artistas y sus estilos.
+  - Gestionar el registro de Compradores o clientes.
+  - Controlar las Galerías físicamente disponibles.
+  - Registrar las Obras de arte, su precio y disponibilidad.
+  - Procesar la compra/venta de obras mediante Transacciones.
+  - Monitorear el rendimiento general del negocio a través de un Dashboard.
+
+-------------------------------------------------------------------------------
+2. ¿POR QUÉ SE UTILIZAN LISTAS EN ESTE PROYECTO?
+-------------------------------------------------------------------------------
+Las listas son una de las estructuras de datos fundamentales en Python y fueron 
+seleccionadas como la base del almacenamiento en memoria por las siguientes razones:
+
+a) Almacenamiento Dinámico en Memoria RAM:
+   Las listas permiten agregar, consultar y modificar objetos de manera flexible 
+   sin necesidad de definir un tamaño fijo previo. Esto facilita la simulación 
+   del comportamiento de una base de datos en un entorno de pruebas o prototipado.
+
+b) Estructura Secuencial e Indexada:
+   Permiten almacenar múltiples instancias de las clases (Artistas, Compradores, 
+   Galerías, Obras y Transacciones) conservando el orden de inserción, lo que 
+   facilita la asignación e identificación mediante IDs autoincrementables.
+
+c) Facilidad de Recorrido y Filtrado:
+   Mediante ciclos (for) y comprensiones de listas (list comprehensions), es posible 
+   realizar operaciones complejas de búsqueda y cálculo en pocas líneas de código, 
+   tales como:
+     - Buscar un artista o comprador por su ID único.
+     - Filtrar únicamente las obras que están disponibles para venta.
+     - Calcular la suma total de ingresos iterando sobre la lista de transacciones.
+
+d) Simplicidad y Desacoplamiento de Persistencia Externa:
+   Al utilizar listas, la aplicación no depende de un motor de base de datos externo 
+   (como PostgreSQL o MySQL) para ejecutarse, haciendo que el programa sea ligero, 
+   portátil y totalmente funcional en cualquier entorno interactivo o de consola.
+
+-------------------------------------------------------------------------------
+3. ARQUITECTURA Y VALIDACIÓN DE DATOS
+-------------------------------------------------------------------------------
+El software aplica el paradigma de Programación Orientada a Objetos (POO) para 
+modelar cada entidad como una clase independiente, combinándolo con un módulo de 
+validación estricto en la consola.
+
+Garantías del sistema de validación:
+  - Campos vacíos: No permite guardar nombres, direcciones o títulos sin contenido.
+  - Formatos: Exige patrones válidos para correos electrónicos (@) y teléfonos.
+  - Valores numéricos: Asegura que los precios e IDs sean mayores que cero (> 0).
+  - Integridad referencial: Comprueba que una obra o venta no sea registrada con 
+    un ID de artista, galería o comprador inexistente.
+  - Control de Estado: Impide la doble venta de una obra ya marcada como "Vendida".
+
+===============================================================================
+                     FIN DE LA DOCUMENTACIÓN DEL PROYECTO
+===============================================================================
